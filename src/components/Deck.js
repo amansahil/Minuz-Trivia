@@ -50,7 +50,7 @@ class Deck extends Component {
   }
 
   componentWillUpdate() {
-    //Remove this line if your animation is actiong wierd on android
+    //Remove this whole componentWillUpdate if your animation is acting weird on android
     //What this does create a nice spring when you finsih swipping the card
     UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true)
     LayoutAnimation.spring();
