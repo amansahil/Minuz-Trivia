@@ -11,6 +11,6 @@ Step 3 : Install two node modules
   
   Note : You might need to run <code>npm install</code> again due to bugs in npm
 
-Step 4 : Download expo app on play store and app store 
+Step 4 : Download expo app on play store or app store 
 
 Step 5 : Scan QR code and enjoy
