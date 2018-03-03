@@ -4,7 +4,7 @@ import { Actions } from 'react-native-router-flux';
 import Deck from './Deck';// We call the deck component, which is responsible for the cards
 import Timer from './Timer';// We are calling the timer component
 
-// This is the question bank , for the order alue in the array we genrate a random number to genrate a radnom oder for questions, which is futher explained in the deck components
+// This is the question bank , for the order value in the array we genrate a random number to genrate a radnom order for questions, which is futher explained in the deck components
 // Add more for a better game
 const DATA = [
   { id: 1, text: 'Who is the current Chief Executive Officer of Apple ?', A1: 'Tim Cook', P2: 'Jonathan Ive', P3: 'Steve Jobs', order: Math.floor(Math.random() * 5) + 0 },
@@ -25,17 +25,17 @@ export default class Play extends React.Component {
 
   swipe = () => {
     this.child.negative5Seconds();
-    // Calls a fucntion in timer
+    // Calls a function in timer
   }
 
   wrongAnswer = () => {
     this.child.negative10Seconds();
-    // Calls a fucntion in timer
+    // Calls a function in timer
   }
 
   correctAnswer = () => {
     this.child.positiveSeconds();
-    // Calls a fucntion in timer
+    // Calls a function in timer
   }
 
   render() {
