@@ -57,7 +57,7 @@ class Deck extends Component {
   }
 
   answer(check) {
-    // If it's right  or wrong it'll trigger function mention on the play.js screen , check the properties of the deck tag in ply.js
+    // If it's right  or wrong it'll trigger functions mentioned on the play.js screen , check the properties of the deck tag in play.js
     const x = check === 'right' ? SCREEN_WIDTH : -SCREEN_WIDTH;
     Animated.timing(this.state.position, {
       toValue: { x , y: 0 },
@@ -75,7 +75,7 @@ class Deck extends Component {
     }
 
   optionButton(item) {
-    //Using item in previous screen we get different buttion option orders
+    //Using item in the previous screen we get different button option orders
     switch(item.order) {
       case 0 :{
         return (
@@ -415,7 +415,7 @@ class Deck extends Component {
   }
 
   forceSwipe(direction) {
-    // WHen swipe is done it triggers a function on play.js , just like answer function
+    // When swipe is done it triggers a function on play.js , just like answer function
     const x = direction === 'right' ? SCREEN_WIDTH : -SCREEN_WIDTH;
     Animated.timing(this.state.position, {
       toValue: { x , y: 0 },
