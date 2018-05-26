@@ -1,5 +1,7 @@
 # quiz-game
-This is the gameplay of the quiz app Minuz trivia
+This is the gameplay of the quiz app Minuz trivia 
+
+Download full game : minuzapp.com
 
 Step 1 : Install expo from : https://docs.expo.io/versions/latest/introduction/installation.html
 
