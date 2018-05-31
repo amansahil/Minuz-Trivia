@@ -1,18 +1,25 @@
 # quiz-game
 This is the gameplay of the quiz app Minuz trivia 
 
-Download full game: https://www.minuzapp.com
+Download the full game: https://www.minuzapp.com
 
-Step 1 : Install expo from : https://docs.expo.io/versions/latest/introduction/installation.html
+<b>These instructions assume you have node installed</b>
 
-Step 2 : Create a new app on expo
+Step 1 : Download code, open the file in the termianal and run <code>npm install</code> to get necessary npm modules
 
-Step 3 : Install two node modules
+Step 2 : Install expo from : https://docs.expo.io/versions/latest/introduction/installation.html
 
-<code>npm install --save react-native-router-flux react-native-elements</code>
-  
-  Note : You might need to run <code>npm install</code> again due to bugs in npm
+Step 3 : Open the expo application and select Open exisitng project, and navigate to the project folder
 
-Step 4 : Download expo app on play store or app store 
+Step 4 : Install expo app on iOS or Android
+        
+        Android: https://play.google.com/store/apps/details?id=host.exp.exponent
+        
+        iOS: https://itunes.apple.com/us/app/expo-client/id982107779?mt=8
+        
+Step 5 (Android) : Click the share button and scan the QR code
 
-Step 5 : Scan QR code and enjoy
+Step 6 (iOS) : Login to your expo account and the link should be visible or click on share and email the link
+        
+
+
