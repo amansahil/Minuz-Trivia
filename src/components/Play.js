@@ -1,22 +1,106 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import Deck from './Deck';// We call the deck component, which is responsible for the cards
-import Timer from './Timer';// We are calling the timer component
+import Deck from './Deck';
+import Timer from './Timer';
 
-// This is the question bank , for the order value in the array we genrate a random number to genrate a radnom order for questions, which is futher explained in the deck components
-// Add more for a better game
-const DATA = [
-  { id: 1, text: 'Who is the current Chief Executive Officer of Apple ?', A1: 'Tim Cook', P2: 'Jonathan Ive', P3: 'Steve Jobs', order: Math.floor(Math.random() * 5) + 0 },
-  { id: 2, text: 'Who invented the remote control on the data 1898 ?', A1: 'Nikola Tesla', P2: 'Thomas Edison', P3: 'Albert Einstien', order: Math.floor(Math.random() * 5) + 0 },
-  { id: 3, text: 'What is the chemical formula for distilled water ?', A1: 'H2O', P2: 'CO2', P3: 'H2O2', order: Math.floor(Math.random() * 5) + 0 },
-  { id: 4, text: 'Who is the most suscribed youtuber for the year of 2018?', A1: 'PewDiePie', P2: 'Germán Garmendia', P3: 'NigaHiga', order: Math.floor(Math.random() * 5) + 0 },
-  { id: 5, text: 'Who is the current Chief Executive Officer of yahoo ?', A1: 'Marissa Mayer', P2: 'Scott Thompson', P3: 'Jerry Yang', order: Math.floor(Math.random() * 5) + 0 },
-  { id: 6, text: 'Which game inspired Shigeru Miyamoto\'s Mario character ?', A1: 'Donkey Kong', P2: 'Zelda', P3: 'Pokemon', order: Math.floor(Math.random() * 5) + 0 },
-  { id: 7, text: 'Where would you find the Sea of Tranquility ?', A1: 'The Moon', P2: 'Mars', P3: 'Venus', order: Math.floor(Math.random() * 5) + 0 },
-  { id: 9, text: 'What is the painting \'La Gioconda\' more usually known as ?', A1: 'Mona Lisa', P2: 'The Last Supper', P3: 'The Scream', order: Math.floor(Math.random() * 5) + 0 },
-  { id: 10, text: 'Name the director of the Lord of the Rings trilogy.', A1: 'Peter Jackson', P2: 'Christopher Nolan', P3: 'Jon Favreau', order: Math.floor(Math.random() * 5) + 0 },
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+  }
+}
 
+function shuffleQuestions(questionsArray) {
+  for (var i = 0; i < questionsArray.length; i++)
+    shuffleArray(questionsArray[i].answers);
+  return questionsArray;
+}
+
+const QuestionData = [
+  {
+    id: 1,
+    text: 'Who is the current Chief Executive Officer of Apple?',
+    answers: [
+      { text: 'Tim Cook', correct: true },
+      { text: 'Jonathan Ive', },
+      { text: 'Steve Jobs', }
+    ]
+  },
+  {
+    id: 2,
+    text: 'Who invented the first wireless remote control in 1898?',
+    answers: [
+      { text: 'Nikola Tesla', correct: true },
+      { text: 'Thomas Edison' },
+      { text: 'Albert Einstein' }
+    ]
+  },
+  {
+    id: 3,
+    text: 'What is the chemical formula for distilled water?',
+    answers: [
+      { text: 'H2O', correct: true },
+      { text: 'CO2' },
+      { text: 'H2O2' }
+    ]
+  },
+  {
+    id: 4,
+    text: 'Who is the most subscribed Youtuber as of 2018?',
+    answers: [
+      { text: 'PewDiePie', correct: true },
+      { text: 'Germán Garmendia' },
+      { text: 'NigaHiga' }
+    ]
+  },
+  {
+    id: 5,
+    text: 'Which CEO of Yahoo stepped down in June 2017?',
+    answers: [
+      { text: 'Marissa Mayer', correct: true },
+      { text: 'Scott Thompson' },
+      { text: 'Jerry Yang' },
+    ]
+  },
+  {
+    id: 6,
+    text: 'Which game inspired Shigeru Miyamoto\'s Mario character?',
+    answers: [
+      { text: 'Donkey Kong', correct: true },
+      { text: 'Zelda' },
+      { text: 'Pokemon' },
+    ]
+  },
+  {
+    id: 7,
+    text: 'Where in the solar system would you find the Sea of Tranquility?',
+    answers: [
+      { text: 'The Moon', correct: true },
+      { text: 'Mars' },
+      { text: 'Venus'}
+    ]
+  },
+  {
+    id: 9,
+    text: 'How is the painting originally titled "La Gioconda" better known these days?',
+    answers: [
+      { text: 'Mona Lisa', correct: true },
+      { text: 'The Last Supper' },
+      { text: 'The Scream' }
+    ]
+  },
+  {
+    id: 10,
+    text: 'Who directed the Lord of the Rings fantasy film series?',
+    answers: [
+      { text: 'Peter Jackson', correct: true },
+      { text: 'Christopher Nolan' },
+      { text: 'Jon Favreau' }
+    ]
+  },
 ];
 
 export default class Play extends React.Component {
@@ -24,34 +108,34 @@ export default class Play extends React.Component {
  state = { positive: 0 , negative: 0 }
 
   swipe = () => {
-    this.child.negative5Seconds();
-    // Calls a function in timer
+    this.timerComp.negative5Seconds();
   }
 
   wrongAnswer = () => {
-    this.child.negative10Seconds();
-    // Calls a function in timer
+    this.timerComp.negative10Seconds();
   }
 
   correctAnswer = () => {
-    this.child.positiveSeconds();
-    // Calls a function in timer
+    this.timerComp.positiveSeconds();
+  }
+
+  clearTimer = () => {
+    this.timerComp.clearTimer();
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.padding} />
         <Timer
-        ref={instance => { this.child = instance; }}
+        ref={instance => { this.timerComp = instance; }}
         />
-        <View style={styles.padding} />
         <Deck
-          data={DATA}
+          data={shuffleQuestions(QuestionData)}
           onSwipeLeft={()=> this.swipe()}
           onSwipeRight={() => this.swipe()}
           correctAnswer={()=> this.correctAnswer()}
           wrongAnswer={()=> this.wrongAnswer()}
+          clearTimer={()=>this.clearTimer()}
         />
       </View>
     );
@@ -62,10 +146,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    },
-    padding: {
-      paddingTop: 20,
-      paddingBottom: 20
+    paddingTop: 40
     },
     timerText: {
       fontSize: 40,
