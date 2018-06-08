@@ -13,9 +13,9 @@ Step 3 : Open the expo application and select Open exisitng project, and navigat
 
 Step 4 : Install expo app on iOS or Android
         
-        Android: https://play.google.com/store/apps/details?id=host.exp.exponent
+   Android: https://play.google.com/store/apps/details?id=host.exp.exponent
         
-        iOS: https://itunes.apple.com/us/app/expo-client/id982107779?mt=8
+   iOS: https://itunes.apple.com/us/app/expo-client/id982107779?mt=8
         
 Step 5 (Android) : Click the share button and scan the QR code
 
