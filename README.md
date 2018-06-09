@@ -19,7 +19,7 @@ Step 4 : Install expo app on iOS or Android
         
 Step 5 (Android) : Click the share button and scan the QR code
 
-Step 6 (iOS) : Login to your expo account and the link should be visible or click on share and email the link
+Step 6 (iOS) : Login to your expo account on your device and the link should be visible or click on share and email the link
         
 
 
