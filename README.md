@@ -5,7 +5,7 @@ Download the full game: https://www.minuzapp.com
 
 <b>These instructions assume you have node installed</b>
 
-Step 1 : Download code, open the file in the terminal and run <code>npm install</code> to get necessary npm modules
+Step 1 : Download the code, open the file in a terminal and run <code>npm install</code> to get necessary npm modules
 
 Step 2 : Install expo from : https://docs.expo.io/versions/latest/introduction/installation.html
 
